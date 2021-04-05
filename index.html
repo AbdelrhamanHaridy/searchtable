@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+AngularJs 
+</title>
+<style>
+        html,
+       body {
+         height: 100%;
+       }
+       body {
+         margin: 0;
+         background: linear-gradient(45deg, #583d72, #237b9e);
+         font-family: sans-serif;
+         font-weight: 100;
+         font-size: 16px
+       }
+
+.container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
+       table {
+         border-collapse: collapse;
+         overflow: hidden;
+         box-shadow: 0 0 20px rgba(0, 0, 0, 0.253);
+       }
+       th,
+       td {
+         padding: 15px;
+         background-color: rgba(255, 255, 255, 0.2);
+         color: #fff;
+       }
+       th {
+         text-align: left;
+       }
+       thead th {
+         background-color: #55608f;
+       }
+       tbody tr:hover {
+         background-color: rgba(255, 255, 255, 0.3);
+       }
+       tbody td {
+         position: relative;
+       }
+       tbody td:hover:before {
+         content: "";
+         position: absolute;
+         left: 0;
+         right: 0;
+         top: -9999px;
+         bottom: -9999px;
+         background-color: rgba(255, 255, 255, 0.2);
+         z-index: -1;
+       }
+       
+               </style>
+       
+       </head>
+       
+       <body ng-app="AngularfilterApp">
+       
+       <div class="container"  ng-controller="filterctrl" >
+       <div class="input" style="    text-align: center;
+       padding: 30px;">
+       
+       <span style="    padding: 10px;font-size: 20px; color: #fff; font-weight: 900; ">Only Name:</span>
+        <input style="border: #fff 2px solid; outline:none;  width: 250px;height: 30px;border-radius:
+         5px;" class="Name" ng-model="searchtxt.name" type="text">
+  
+       
+       <span style="    padding: 10px;font-size: 20px; color: #fff; font-weight: 900; ">Only Age  :</span> 
+       <input style="border: #fff 2px solid; outline:none;   width: 250px;height: 30px;
+       border-radius: 5px;" class="Age"ng-model="searchtxt.age" type="text" >
+       </div>
+       <table id="customers">
+       
+       
+                    <tr>
+                       <th>Company1</th>
+                       <th>Contact2</th>
+                       <th>Country3</th>
+                       <th>Company4</th>
+                       <th>Contact5</th>
+                       <th>Country6</th>
+                       <th>Company7</th>
+                       <th>Contact8</th>
+                       <th>Country9</th>
+                       <th>Company10</th>
+       
+                     </tr>
+       
+       
+       <tr ng-repeat="user in users | filter : searchtxt" >
+       
+       <td >{{user.name}}</td>
+       <td>{{user.age}}</td>
+       <td>{{user.h}}</td>
+       <td>{{user.Bertrand}}</td>
+       <td>{{user.Rovelli}}</td>
+       <td>{{user.Philip}}</td>
+       <td>{{user.f}}</td>
+       <td>{{user.Francisco}}</td>
+       <td>{{user.a}}</td>
+       <td>{{user.Simon}}</td>
+
+       </tr>
+       </table>
+       </div>
+       </div>
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+       <script>
+       var app = angular.module("AngularfilterApp", []);
+       app.controller("filterctrl", function ($scope) {
+       $scope.users = [
+           {name: "Madhav Sai" ,     age: 18,  h:45458, Bertrand: "Madhav Sai",Rovelli: "Helen ",Philip:"Bennett ",f:15475,Francisco:"Crowther " ,a:5478,Simon  :"Rovelli " },
+           {name: "Suresh Dasari" ,     age: 29,  h:45458, Bertrand: "Madhav Sai",Rovelli: "Helen ",Philip:"Bennett ",f:15475,Francisco:"Crowther " ,a:5478,Simon  :"Rovelli " }, 
+           {name: "Rohini Alavala",     age: 23,  h:45458, Bertrand: "Madhav Sai",Rovelli: "Helen ",Philip:"Bennett ",f:15475,Francisco:"Crowther " ,a:5478,Simon  :"Rovelli " },
+           {name: "Alfreds Futterkiste",age: 24,h:45458, Bertrand: "Madhav Sai",Rovelli: "Helen ",Philip:"Bennett ",f:15475,Francisco:"Crowther " ,a:5478,Simon  :"Rovelli " },
+           {name: "Island Trading" ,age: 34,h:45458, Bertrand: "Madhav Sai",Rovelli: "Helen ",Philip:"Bennett ",f:15475,Francisco:"Crowther " ,a:5478,Simon  :"Rovelli " },
+           {name: "Praveen Kumar" ,age: 53,h:45458, Bertrand: "Madhav Sai",Rovelli: "Helen ",Philip:"Bennett ",f:15475,Francisco:"Crowther " ,a:5478,Simon  :"Rovelli " }];
+       });
+       </script>
+       
+</body>
+</html>
